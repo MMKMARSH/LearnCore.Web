@@ -30,6 +30,10 @@ namespace LearnCore.Web
             services.AddControllersWithViews();
 
             services.AddDbContext<LearnCoreDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionStr")));
+
+            //Dependency Injection
+            services.AddScoped(typeof(IRespository<>), typeof(EfRespository<>));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +59,10 @@ namespace LearnCore.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "Default",
+                    pattern: "{Controller=Home}/{Action=Index}/{Id?}"
+                );
             });
         }
     }
