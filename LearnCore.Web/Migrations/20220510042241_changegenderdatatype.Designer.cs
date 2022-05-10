@@ -3,14 +3,16 @@ using LearnCore.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LearnCore.Web.Migrations
 {
     [DbContext(typeof(LearnCoreDbContext))]
-    partial class LearnCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220510042241_changegenderdatatype")]
+    partial class changegenderdatatype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

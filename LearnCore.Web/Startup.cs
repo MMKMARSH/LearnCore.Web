@@ -1,4 +1,6 @@
 using LearnCore.Web.Data;
+using LearnCore.Web.Interfaces;
+using LearnCore.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +35,7 @@ namespace LearnCore.Web
 
             //Dependency Injection
             services.AddScoped(typeof(IRespository<>), typeof(EfRespository<>));
+            services.AddScoped<ICustomerService, CustomerService>();
 
         }
 

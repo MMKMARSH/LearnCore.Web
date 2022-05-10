@@ -1,7 +1,68 @@
-﻿
+﻿@model CustomerModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>This is default index page</h5>
+<form asp-controller="Home" asp-action="Index" method="post">
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>
+                <input type="text" asp-for="FirstName" />
+                <span asp-validation-for="FirstName" style="color:red;"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>
+                <input type="text" asp-for="LastName" />
+                <span asp-validation-for="LastName" style="color:red;"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="text" asp-for="EmailId" />
+                <span asp-validation-for="EmailId" style="color:red;"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>
+                <input type="text" asp-for="MobileNo" />
+                <span asp-validation-for="MobileNo" style="color:red;"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>
+                <select asp-for="Age" asp-items="Model.AvailableAges">
+                </select>
+                <span asp-validation-for="Age" style="color:red;"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" asp-for="Gender" value="Male" checked />Male
+                <input type="radio" asp-for="Gender" value="Female" />Female
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" /></td>
+            <td>
+                Select Term & Condition
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <button type="submit">Save Changes</button>
+            </td>
+        </tr>
+    </table>
+
+
+</form>
